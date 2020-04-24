@@ -3,18 +3,20 @@ import logo from './logo.svg';
 import './App.css';
 
 class Item extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       finish: false,
     }
+    
   }
 
   handleCheck = (e) => {
     this.setState({
       finish: (this.state.finish === false) ? true : false,
     })
+    this.props.getFinish(this.state.finish);
   }
 
 

@@ -6,7 +6,9 @@ class ToDoList extends React.Component {
         super();
         this.state = {
             componentArr: [],
+            finish: false,
         }
+        this.getFinish = this.getFinish.bind(this);
     }
 
     handleAdd = (e) => {
@@ -25,18 +27,26 @@ class ToDoList extends React.Component {
         });
     }
 
-    componentDidMount(){
-        this.handleFilterCom = ()=>{
-            let items = this.state.componentArr.map((item, index)=><Item key={index} />)
-            this.setState({componentArr: items.filter((item, index)=>item.state.finish===true)});
-            console.log(this.state.componentArr);
-        }
+
+    handleFilterCom = (e) => {
+        e.preventDefault();
+        let items = this.state.componentArr.map((item, index) => <Item key={index} />)
+        this.setState({ componentArr: items.filter((item, index) => this.state.finish === true) });
+        console.log(this.state.componentArr);
+    }
+
+
+    getFinish(finish) {
+        this.setState({
+            finish: finish,
+        });
     }
 
     render() {
         return (
             <div>
-                {this.state.componentArr.map((item, index) => <Item key={index} />)}
+                <div>{JSON.stringify(this.state)}</div>
+                {this.state.componentArr.map((item, index) => <Item key={index} getFinish={this.getFinish} />)}
                 <input type='button' value='add an item' onClick={this.handleAdd}></input>
                 <input type='button' value='delete an item' onClick={this.handleDel}></input>
                 <div></div>
