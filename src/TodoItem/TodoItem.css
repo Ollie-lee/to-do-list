@@ -1,0 +1,8 @@
+.item-complete {
+  text-decoration: line-through;
+}
+
+.item-inDisplay {
+  display: none;
+}
+/*# sourceMappingURL=TodoItem.css.map */
