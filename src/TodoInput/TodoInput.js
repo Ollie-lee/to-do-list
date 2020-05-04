@@ -1,10 +1,12 @@
 import React from 'react'
+import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
 
 export default function TodoInput({ handleInputChange, input, handleInputClick, handleFilterFinished, handleFilterNone }) {
     return (<div>
-        <input type='text' onChange={handleInputChange} value={input}></input>
-        <button type='button' onClick={handleInputClick}>add an item</button>
-        <button type='button' onClick={handleFilterFinished}>show unfinished item</button>
-        <button type='button' onClick={handleFilterNone}>show all item</button>
+        <Input type='text' onChange={handleInputChange} value={input}></Input>
+        <Button variant="contained" color="primary" onClick={handleInputClick}>add an item</Button>
+        <Button variant="contained" color="primary" onClick={handleFilterFinished}>show unfinished item</Button>
+        <Button variant="contained" color="primary" onClick={handleFilterNone}>show all item</Button>
     </div>);
 };

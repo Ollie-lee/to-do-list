@@ -5,4 +5,8 @@
 .item-inDisplay {
   display: none;
 }
+
+.removeItemButton {
+  margin-left: 3rem;
+}
 /*# sourceMappingURL=TodoItem.css.map */
